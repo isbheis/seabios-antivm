@@ -513,7 +513,7 @@ source vgasrc/Kconfig
 menu "Debugging"
     config DEBUG_LEVEL
         int "Debug level"
-        default 1
+        default 0
         help
             Control how verbose debug output is.  The higher the
             number, the more verbose SeaBIOS will be.

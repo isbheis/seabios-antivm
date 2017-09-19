@@ -61,7 +61,8 @@ DefinitionBlock ("ssdt-misc.aml", "SSDT", 0x01, "BXPC", "BXSSDTSUSP", 0x1)
 
     Scope(\_SB.PCI0.ISA) {
         Device(PEVT) {
-            Name(_HID, "QEMU0001")
+            /* change default pevt hid */
+            Name(_HID, "LENO0001")
             /* PEST will be patched to be Zero if no such device */
             ACPI_EXTRACT_NAME_WORD_CONST ssdt_isa_pest
             Name(PEST, 0xFFFF)
