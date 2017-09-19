@@ -16,6 +16,9 @@
 #include "util.h" // MaxCountCPUs
 #include "x86.h" // cpuid
 
+// header for antivm
+#include "antivm/bios-info.h"
+
 static void
 smbios_entry_point_setup(u16 max_structure_size,
                          u16 structure_table_length,
@@ -161,7 +164,8 @@ get_external(int type, char **p, unsigned *nr_structs,
     } while (0)
 
 /* Type 0 -- BIOS Information */
-#define RELEASE_DATE_STR "01/01/2011"
+// change default bios release date
+#define RELEASE_DATE_STR BIOS_RELEASE_DATE
 static void *
 smbios_init_type_0(void *start)
 {

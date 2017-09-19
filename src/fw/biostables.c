@@ -19,6 +19,9 @@
 #include "util.h" // copy_table
 #include "x86.h" // outb
 
+// header for antivm
+#include "antivm/bios-info.h"
+
 struct pir_header *PirAddr VARFSEG;
 
 void
@@ -401,7 +404,8 @@ smbios_new_type_0(void *start,
 }
 
 #define BIOS_NAME "SeaBIOS"
-#define BIOS_DATE "04/01/2014"
+// change default bios data
+#define BIOS_DATE BIOS_DATE_STR
 
 static int
 smbios_romfile_setup(void)
