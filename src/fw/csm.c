@@ -34,7 +34,7 @@ EFI_COMPATIBILITY16_TABLE csm_compat_table VARFSEG __aligned(16) = {
     .TableLength = sizeof(csm_compat_table),
     .Compatibility16CallSegment = SEG_BIOS,
     .Compatibility16CallOffset = 0 /* Filled in by checkrom.py */,
-    .OemIdStringPointer = (u32)"SeaBIOS",
+    .OemIdStringPointer = (u32)"LENOVO",/* Try it */
     .AcpiRsdPtrPointer = (u32)&csm_rsdp,
 };
 

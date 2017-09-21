@@ -403,7 +403,8 @@ smbios_new_type_0(void *start,
     return end;
 }
 
-#define BIOS_NAME "SeaBIOS"
+// change default bios name
+#define BIOS_NAME __BIOS_NAME
 // change default bios data
 #define BIOS_DATE BIOS_DATE_STR
 

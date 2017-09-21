@@ -48,7 +48,8 @@ enable_vga_console(void)
     call16_int10(&br);
 
     // Write to screen.
-    printf("SeaBIOS (version %s)\n", VERSION);
+    // do not output this hint string for antivm
+    //printf("SeaBIOS (version %s)\n", VERSION);
     display_uuid();
 }
 

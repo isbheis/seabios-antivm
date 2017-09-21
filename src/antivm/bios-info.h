@@ -8,3 +8,6 @@
 
 // bios date
 #define BIOS_DATE_STR "08/13/2015"
+
+// built bios name
+#define __BIOS_NAME "LENOVO"
