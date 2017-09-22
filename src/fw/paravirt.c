@@ -56,10 +56,11 @@ static void kvm_detect(void)
     memcpy(signature + 8, &edx, 4);
     signature[12] = 0;
 
-    if (strcmp(signature, "KVMKVMKVM") == 0) {
-        dprintf(1, "Running on KVM\n");
-        PlatformRunningOn |= PF_KVM;
-    }
+    // disable this check as we do not need kvm in our analysis process
+    //if (strcmp(signature, "KVMKVMKVM") == 0) {
+    //    dprintf(1, "Running on KVM\n");
+    //    PlatformRunningOn |= PF_KVM;
+    //}
 }
 
 static void qemu_detect(void)
@@ -563,12 +564,15 @@ void qemu_cfg_init(void)
         return;
 
     // Detect fw_cfg interface.
-    qemu_cfg_select(QEMU_CFG_SIGNATURE);
-    char *sig = "QEMU";
-    int i;
-    for (i = 0; i < 4; i++)
-        if (inb(PORT_QEMU_CFG_DATA) != sig[i])
-            return;
+    /* disable the check as the qemu fw_cfg always exists
+     * in our hardware configure
+     */
+    //qemu_cfg_select(QEMU_CFG_SIGNATURE);
+    //char *sig = "QEMU";
+    //int i;
+    //for (i = 0; i < 4; i++)
+    //    if (inb(PORT_QEMU_CFG_DATA) != sig[i])
+    //        return;
 
     dprintf(1, "Found QEMU fw_cfg\n");
 

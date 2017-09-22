@@ -248,7 +248,8 @@ scsi_drive_setup(struct drive_s *drive, const char *s, int prio)
     // but some old USB keys only support a very small subset of SCSI which
     // does not even include the MODE SENSE command!
     //
-    if (CONFIG_QEMU_HARDWARE && memcmp(vendor, "QEMU", 5) == 0) {
+    /* disable the vendor check as the disk is always 'large' disk*/
+    if (CONFIG_QEMU_HARDWARE) {
         struct cdbres_mode_sense_geom geomdata;
         ret = cdb_mode_sense_geom(&dop, &geomdata);
         if (ret == 0) {
